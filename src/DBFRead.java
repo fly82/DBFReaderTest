@@ -9,8 +9,7 @@ public class DBFRead {
     private static String str;
 
     public static void main(String... args) throws IOException {
-        try (InputStream inputStream = new FileInputStream("ma.dbf")) {
-            DBFReader reader = new DBFReader(inputStream);
+        try (DBFReader reader = new DBFReader(new FileInputStream("ma.dbf"));) {
             int numberOfFields = reader.getFieldCount();
             for (int i = 0; i < numberOfFields; i++) {
                 DBFField field = reader.getField(i);
